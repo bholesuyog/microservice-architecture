@@ -14,7 +14,7 @@ import com.app.entity.Department;
 import com.app.service.DepartmentService;
 
 @RestController
-@RequestMapping("api/departments")
+@RequestMapping("/department")
 public class DepartmentController {
 
 	@Autowired
@@ -26,7 +26,7 @@ public class DepartmentController {
 		return new ResponseEntity<>(savedDepartment, HttpStatus.CREATED);
 	}
 
-	@GetMapping("{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<Department> getDepartmentById(@PathVariable("id") Long departmentId) {
 		Department department = departmentService.getDepartmentById(departmentId);
 		return ResponseEntity.ok(department);
